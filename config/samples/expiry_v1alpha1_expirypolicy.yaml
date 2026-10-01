@@ -1,0 +1,13 @@
+apiVersion: expiry.example.io/v1alpha1
+kind: ExpiryPolicy
+metadata:
+  name: expire-configmaps
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      ttl: enabled
+  targetKinds:
+    - apiVersion: v1
+      kind: ConfigMap
+  ttl: 1h
